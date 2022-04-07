@@ -31,6 +31,7 @@ This is a on-demend food delivery app specifically for learning and exploring fl
 ## Episodes
 * Overview & Project Creation #notlive
 * Folder Structure #notlive
+* Theming
 * Build UI(Onboard, Auth, Home, Favourite, Profile, Search) #notlive
 * Navigation #notlive
 * Managing states - Provider & Bloc(Use dummy data) #notlive
