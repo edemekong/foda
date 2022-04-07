@@ -17,6 +17,8 @@ This is a on-demend food delivery app specifically for learning and exploring fl
 * Realtime Order Tracking
 * Push Notifications
 
+<img width="861" alt="Screenshot 2022-04-07 at 6 00 25 AM" src="https://user-images.githubusercontent.com/68385854/162123485-c3182e5f-1f52-4a14-a555-d7ee3498ab5e.png">
+
 
 ### We'll be focusing on:
 * Good UI.
@@ -35,6 +37,5 @@ This is a on-demend food delivery app specifically for learning and exploring fl
 * Connect to Firebase (iOS & Android) #notlive
 * Email/Password & Google Authentication #notlive
 * MORE to come
-
 
 #### All Published episodes will be seen below as a thumbnail
