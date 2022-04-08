@@ -1,0 +1,35 @@
+{
+    "name": "foda",
+    "short_name": "foda",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0175C2",
+    "theme_color": "#0175C2",
+    "description": "This is a on-demend food delivery app specifically for learning and exploring flutter amazing framework. This Project is developed to help beginners, intermediates and sometime advance to know better about using Firebase services and tools, different flutter state management solutions, complex navigations, realtime control over maps, understanding payments etc. This will help you build a strong portfolio for your journey as becoming a valuable FLUTTER DEVELOPER.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
