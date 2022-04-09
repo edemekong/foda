@@ -45,7 +45,5 @@ flutter:
           weight: 400
         - asset: assets/fonts/ArimaMadurai-Medium.ttf
           weight: 500
-        - asset: assets/fonts/ArimaMadurai-SemiBold.ttf
-          weight: 600
         - asset: assets/fonts/ArimaMadurai-Bold.ttf
           weight: 700
