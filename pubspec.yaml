@@ -23,10 +23,27 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
+    - assets/icons/
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/OpenSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/OpenSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/OpenSans-Bold.ttf
+          weight: 700
+
+    - family: ArimaMadurai
+      fonts:
+        - asset: assets/fonts/ArimaMadurai-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/ArimaMadurai-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/ArimaMadurai-Bold.ttf
+          weight: 700
