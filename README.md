@@ -41,3 +41,33 @@ This is a on-demend food delivery app specifically for learning and exploring fl
 - MORE to come
 
 #### All Published episodes will be seen below as a thumbnail
+
+## VIDEO TUTORIALS BELOW
+
+### Build A Flutter On-demand Food Delivery App - Overview || Episode 1
+
+- Welcome everyone!!!❤️💙
+- This is an intro/overview of the project enjoy! if you have any questions leave it on the comment section am always checking them out.
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/1py8MfiAFp8/0.jpg)](https://www.youtube.com/watch?v=1py8MfiAFp8)
+
+### Folder Structure For Our Food Delivery App; Flutter || Episode 2
+
+- In this second episode we're going to clean up and setup our folder structure for the food delivery app.
+- This structure is going to fit into our future state management solutions we are planing to adapt. Provider & Bloc.
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/_38O86A0aZw/0.jpg)](https://www.youtube.com/watch?v=_38O86A0aZw)
+
+### Using GIT & GITHUB for our Food Delivery App; Flutter || Episode 3
+
+In this episode we are going to talk about git and GitHub as a solution to track and manage changes around our code as the project grows.
+This is vital for beginners to know.
+Here I will explain how we are going to use it in our case. You can check out other videos to learn how to install git and configure GitHub to work on your local mechine.
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/vdUHxy_aFVE/0.jpg)](https://www.youtube.com/watch?v=vdUHxy_aFVE)
+
+### Theme Your Flutter Project: Food Delivery App || Episode 4
+
+- Here in this tutorial we're are going to put together how we can effectively theme our flutter project like a pro!
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/0bzCK8Szoh4/0.jpg)](https://www.youtube.com/watch?v=0bzCK8Szoh4)
