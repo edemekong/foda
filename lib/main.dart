@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foda/screens/onboard/onboard_view.dart';
 import 'package:foda/themes/app_theme.dart';
 
 void main() {
@@ -12,23 +13,7 @@ class FodaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: AppTheme.theme,
-      home: const Home(),
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Foda',
-          style: Theme.of(context).textTheme.headline1,
-        ),
-      ),
+      home: const OnboardView(),
     );
   }
 }

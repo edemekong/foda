@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   //spaces
-  static const double cardPadding = 28;
-  static const double elementSpacing = cardPadding / 0.5;
+  static const double cardPadding = 24;
+  static const double elementSpacing = cardPadding * 0.5;
   static const double bottomNavBarHeight = 64;
   static const Duration animationDuration = Duration(milliseconds: 300);
   static BorderRadius cardRadius = BorderRadius.circular(14);
   static const double iconSize = cardPadding;
+
+  static const Color blackLight = Color(0xFF292031);
+
+  static const double buttonHeight = 50;
   static Size size(BuildContext context) => MediaQuery.of(context).size;
 
   //colors
