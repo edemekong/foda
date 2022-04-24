@@ -4,6 +4,8 @@ import 'package:foda/components/app_scaffold.dart';
 import 'package:foda/components/foda_button.dart';
 import 'package:foda/components/oval_paint.dart';
 import 'package:foda/constant/image_path.dart';
+import 'package:foda/constant/route_name.dart';
+import 'package:foda/screens/authentication/authentication_view.dart';
 import 'package:foda/themes/app_theme.dart';
 
 class OnboardView extends StatelessWidget {
@@ -34,12 +36,18 @@ class OnboardView extends StatelessWidget {
                       children: [
                         const AuthHeader("Welcome\nto Food Delivery"),
                         const SizedBox(height: AppTheme.cardPadding),
-                        FodaButton(title: "Sign In", onTap: () {}),
+                        FodaButton(
+                            title: "Sign In",
+                            onTap: () {
+                              Navigator.of(context).pushNamed(authPath, arguments: AuthenticationViewState.signIn);
+                            }),
                         const SizedBox(height: AppTheme.elementSpacing),
                         FodaButton(
                           title: "Sign Up",
                           gradiant: const [AppTheme.darkBlue],
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushNamed(authPath, arguments: AuthenticationViewState.signUp);
+                          },
                         ),
                       ],
                     ),
