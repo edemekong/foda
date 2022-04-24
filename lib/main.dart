@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foda/screens/authentication/authentication_view.dart';
 import 'package:foda/screens/onboard/onboard_view.dart';
 import 'package:foda/themes/app_theme.dart';
 
@@ -13,7 +14,9 @@ class FodaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: AppTheme.theme,
-      home: const OnboardView(),
+      home: const AuthenticationView(
+        viewState: AuthenticationViewState.signUp,
+      ),
     );
   }
 }

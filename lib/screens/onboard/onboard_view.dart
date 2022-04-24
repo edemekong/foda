@@ -32,11 +32,7 @@ class OnboardView extends StatelessWidget {
                     width: AppTheme.size(context).width * 0.6,
                     child: Column(
                       children: [
-                        Text(
-                          "Welcome\nto Food Delivery",
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headline2?.copyWith(color: AppTheme.orange, height: 1),
-                        ),
+                        const AuthHeader("Welcome\nto Food Delivery"),
                         const SizedBox(height: AppTheme.cardPadding),
                         FodaButton(title: "Sign In", onTap: () {}),
                         const SizedBox(height: AppTheme.elementSpacing),
@@ -54,6 +50,27 @@ class OnboardView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class AuthHeader extends StatelessWidget {
+  final String title;
+  const AuthHeader(
+    this.title, {
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.headline1?.copyWith(
+            fontWeight: FontWeight.w800,
+            color: AppTheme.orange,
+            height: 1,
+          ),
     );
   }
 }
