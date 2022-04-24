@@ -4,19 +4,23 @@ import 'package:foda/themes/app_theme.dart';
 //Add this CustomPaint widget to the Widget Tree
 
 class AmaobaPaint extends StatelessWidget {
-  const AmaobaPaint({Key? key}) : super(key: key);
+  final Color? color;
+  const AmaobaPaint({Key? key, this.color}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = AppTheme.size(context);
     return CustomPaint(
       size: Size(size.width, (size.width * 0.9029767677395006).toDouble()),
-      painter: RPSCustomPainter(),
+      painter: RPSCustomPainter(color),
     );
   }
 }
 
 class RPSCustomPainter extends CustomPainter {
+  final Color? color;
+
+  RPSCustomPainter(this.color);
   @override
   void paint(Canvas canvas, Size size) {
     Path path_0 = Path();
@@ -42,7 +46,7 @@ class RPSCustomPainter extends CustomPainter {
     path_0.close();
 
     Paint paint_0_fill = Paint()..style = PaintingStyle.fill;
-    paint_0_fill.color = Color(0xff202040).withOpacity(1.0);
+    paint_0_fill.color = color ?? Color(0xff202040).withOpacity(1.0);
     canvas.drawPath(path_0, paint_0_fill);
   }
 

@@ -1,19 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foda/screens/onboard/onboard_view.dart';
-import 'package:foda/themes/app_theme.dart';
+import 'app.dart';
 
 void main() {
   runApp(const FodaApp());
-}
-
-class FodaApp extends StatelessWidget {
-  const FodaApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.theme,
-      home: const OnboardView(),
-    );
-  }
 }

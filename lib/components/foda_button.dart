@@ -48,12 +48,12 @@ class _FodaButtonState extends State<FodaButton> {
                 children: [
                   if (widget.leadingIcon != null)
                     Padding(
-                      padding: const EdgeInsets.only(right: AppTheme.elementSpacing * 0.25),
+                      padding: const EdgeInsets.only(right: AppTheme.elementSpacing),
                       child: widget.leadingIcon,
                     ),
                   Text(
                     widget.title,
-                    style: Theme.of(context).textTheme.button,
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ],
               ),

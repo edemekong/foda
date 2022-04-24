@@ -22,6 +22,7 @@ class AppTheme {
   static const Color purple = Color(0xFF543864);
   static const Color darkBlue = Color(0xFF202040);
   static const Color grey = Color(0xFF636363);
+  static const Color darkBlueLight = Color(0xFF382843);
 
   //text theme
   static TextTheme textTheme = const TextTheme(
@@ -130,8 +131,27 @@ class AppTheme {
     ),
     iconTheme: const IconThemeData(color: grey),
     splashColor: red.withOpacity(.4),
-    inputDecorationTheme:
-        InputDecorationTheme(fillColor: black, filled: true, border: OutlineInputBorder(borderRadius: cardRadius)),
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: black,
+      filled: true,
+      labelStyle: textTheme.bodyText2,
+      hintStyle: textTheme.bodyText2?.copyWith(
+        color: AppTheme.white.withOpacity(.8),
+      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: AppTheme.cardPadding),
+      border: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.circular(99),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.circular(99),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.circular(99),
+      ),
+    ),
     primaryIconTheme: const IconThemeData(
       color: white,
     ),

@@ -4,6 +4,8 @@ import 'package:foda/components/app_scaffold.dart';
 import 'package:foda/components/foda_button.dart';
 import 'package:foda/components/oval_paint.dart';
 import 'package:foda/constant/image_path.dart';
+import 'package:foda/constant/route_name.dart';
+import 'package:foda/screens/authentication/authentication_view.dart';
 import 'package:foda/themes/app_theme.dart';
 
 class OnboardView extends StatelessWidget {
@@ -32,18 +34,20 @@ class OnboardView extends StatelessWidget {
                     width: AppTheme.size(context).width * 0.6,
                     child: Column(
                       children: [
-                        Text(
-                          "Welcome\nto Food Delivery",
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headline2?.copyWith(color: AppTheme.orange, height: 1),
-                        ),
+                        const AuthHeader("Welcome\nto Food Delivery"),
                         const SizedBox(height: AppTheme.cardPadding),
-                        FodaButton(title: "Sign In", onTap: () {}),
+                        FodaButton(
+                            title: "Sign In",
+                            onTap: () {
+                              Navigator.of(context).pushNamed(authPath, arguments: AuthenticationViewState.signIn);
+                            }),
                         const SizedBox(height: AppTheme.elementSpacing),
                         FodaButton(
                           title: "Sign Up",
                           gradiant: const [AppTheme.darkBlue],
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushNamed(authPath, arguments: AuthenticationViewState.signUp);
+                          },
                         ),
                       ],
                     ),
@@ -54,6 +58,27 @@ class OnboardView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class AuthHeader extends StatelessWidget {
+  final String title;
+  const AuthHeader(
+    this.title, {
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.headline1?.copyWith(
+            fontWeight: FontWeight.w800,
+            color: AppTheme.orange,
+            height: 1,
+          ),
     );
   }
 }
