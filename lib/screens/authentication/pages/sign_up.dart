@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foda/components/foda_button.dart';
+import 'package:foda/screens/authentication/authentication_state.dart';
+import 'package:foda/screens/authentication/authentication_view.dart';
 import 'package:foda/screens/onboard/onboard_view.dart';
 import 'package:foda/themes/app_theme.dart';
+import 'package:provider/provider.dart';
 
 import '../../../components/textfield.dart';
 
@@ -12,6 +15,7 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final state = context.watch<AuthenticationState>();
     return Padding(
       padding: const EdgeInsets.all(AppTheme.cardPadding),
       child: Center(
@@ -42,21 +46,25 @@ class SignUpView extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyText2?.copyWith(color: AppTheme.grey),
             ),
             const SizedBox(height: AppTheme.cardPadding),
-            const FodaTextfield(
+            FodaTextfield(
               title: "Your Name",
+              controller: state.nameController,
             ),
             const SizedBox(height: AppTheme.elementSpacing),
-            const FodaTextfield(
+            FodaTextfield(
               title: "Your Email",
+              controller: state.emailController,
             ),
             const SizedBox(height: AppTheme.elementSpacing),
-            const FodaTextfield(
+            FodaTextfield(
               title: "Password",
+              controller: state.passwordController,
             ),
             const SizedBox(height: AppTheme.cardPadding),
             FodaButton(
               title: "Sign Up",
-              onTap: () {},
+              state: state.isLoading ? ButtonState.loading : ButtonState.idle,
+              onTap: state.registerUser,
             ),
             const SizedBox(height: AppTheme.cardPadding * 4),
           ],
