@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:foda/constant/route_name.dart';
+import 'package:foda/screens/authentication/authentication_state.dart';
 import 'package:foda/services/navigation_service.dart';
 import 'package:foda/themes/app_theme.dart';
+import 'package:provider/provider.dart';
 
 class FodaApp extends StatelessWidget {
   const FodaApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.theme,
-      home: const Wrapper(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthenticationState()),
+      ],
+      child: MaterialApp(
+        theme: AppTheme.theme,
+        home: const Wrapper(),
+      ),
     );
   }
 }

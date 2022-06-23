@@ -13,6 +13,29 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+  #database
+  firebase_core: ^1.16.0
+  firebase_auth: ^3.3.17
+  google_sign_in: ^5.3.0
+
+  #new
+  firebase_storage: ^10.2.15
+  firebase_dynamic_links: ^4.2.2
+  cloud_firestore: ^3.1.10
+
+  #state management control
+  provider: ^6.0.2
+  either_dart: ^0.1.4
+  get_it: ^7.2.0
+
+  #utils
+  intl: ^0.17.0
+  extended_image: ^6.0.3
+  equatable: ^2.0.3
+  shared_preferences: ^2.0.13
+  url_launcher: ^6.1.0
+  random_string: ^2.3.1
+  file_picker: ^4.5.1
 
 dev_dependencies:
   flutter_test:

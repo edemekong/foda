@@ -8,6 +8,8 @@ import 'package:foda/constant/route_name.dart';
 import 'package:foda/screens/authentication/authentication_view.dart';
 import 'package:foda/themes/app_theme.dart';
 
+// import '../../services/authentication_service.dart';
+
 class OnboardView extends StatelessWidget {
   const OnboardView({Key? key}) : super(key: key);
 
@@ -46,6 +48,13 @@ class OnboardView extends StatelessWidget {
                           title: "Sign Up",
                           gradiant: const [AppTheme.darkBlue],
                           onTap: () {
+                            // print("Trying to sign in");
+                            // AuthenicationService.instance.signUp("hello.paulvin@gmail.com", "123123123").then((value) {
+                            //   if (value != null) {
+                            //     print("Signed up user => ${value.email}");
+                            //   }
+                            // });
+
                             Navigator.of(context).pushNamed(authPath, arguments: AuthenticationViewState.signUp);
                           },
                         ),
