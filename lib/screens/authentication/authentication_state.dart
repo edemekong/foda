@@ -20,6 +20,8 @@ class AuthenticationState extends BaseState {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  bool isLoadingGoogle = false;
+
   AuthenticationState() {
     if (currentUser == null) {
       _userNotifier();
@@ -54,7 +56,7 @@ class AuthenticationState extends BaseState {
 
       if (register.isRight) {
         fodaPrint("Successfully registered a user");
-        Navigator.of(context).pushNamed(overviewPath);
+        navigatorToHome();
       } else {
         fodaPrint("${register.left} error");
       }
@@ -72,7 +74,7 @@ class AuthenticationState extends BaseState {
 
       if (register.isRight) {
         fodaPrint("Successfully login a user");
-        Navigator.of(context).pushNamed(overviewPath);
+        navigatorToHome();
       } else {
         fodaPrint("${register.left} error");
       }
@@ -81,18 +83,27 @@ class AuthenticationState extends BaseState {
 
   googleSingin() async {
     if (isLoading == false) {
-      setLoading(true);
+      isLoadingGoogle = true;
+      notifyListeners();
 
       final register = await userRepo.googleSignIn();
-      setLoading(false);
+      isLoadingGoogle = false;
+      notifyListeners();
 
       if (register.isRight) {
         fodaPrint("Successfully sigin user");
-        Navigator.of(context).pushNamed(overviewPath);
+        navigatorToHome();
       } else {
         fodaPrint("${register.left} error");
       }
     }
+  }
+
+  void navigatorToHome() {
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      overviewPath,
+      (route) => false,
+    );
   }
 
   void _userNotifier() {

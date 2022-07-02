@@ -29,13 +29,13 @@ class SignInView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: AppTheme.cardPadding * 2),
               child: FodaButton(
                 title: "Sign In With Google",
-                state: state.isLoading ? ButtonState.loading : ButtonState.idle,
+                state: state.isLoadingGoogle ? ButtonState.loading : ButtonState.idle,
                 gradiant: const [
                   AppTheme.orange,
                   AppTheme.red,
                 ],
                 leadingIcon: const Icon(
-                  Icons.facebook,
+                  Icons.g_translate_outlined,
                   color: AppTheme.white,
                 ),
                 onTap: state.googleSingin,

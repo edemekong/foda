@@ -20,6 +20,8 @@ class UserRepository {
 
   StreamSubscription? _authStreamSubscription;
 
+  String? get currentUserUID => _authService.auth.currentUser?.uid;
+
   set setCurrentUser(User? user) {
     currentUserNotifier.value = user;
     currentUserNotifier.notifyListeners();
@@ -148,5 +150,10 @@ class UserRepository {
     } catch (e) {
       return Left(ErrorHandler(message: e.toString()));
     }
+  }
+
+  Future<void> logout() async {
+    setCurrentUser = null;
+    await _authService.logout();
   }
 }

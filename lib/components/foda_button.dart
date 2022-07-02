@@ -42,7 +42,12 @@ class _FodaButtonState extends State<FodaButton> {
                   )
                 : null),
         child: widget.state == ButtonState.loading
-            ? const Center(child: CircularProgressIndicator())
+            ? Center(
+                child: Transform.scale(
+                    scale: 0.6,
+                    child: const CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation(AppTheme.white),
+                    )))
             : Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
