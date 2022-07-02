@@ -72,6 +72,23 @@ class AuthenticationState extends BaseState {
 
       if (register.isRight) {
         fodaPrint("Successfully login a user");
+        Navigator.of(context).pushNamed(overviewPath);
+      } else {
+        fodaPrint("${register.left} error");
+      }
+    }
+  }
+
+  googleSingin() async {
+    if (isLoading == false) {
+      setLoading(true);
+
+      final register = await userRepo.googleSignIn();
+      setLoading(false);
+
+      if (register.isRight) {
+        fodaPrint("Successfully sigin user");
+        Navigator.of(context).pushNamed(overviewPath);
       } else {
         fodaPrint("${register.left} error");
       }

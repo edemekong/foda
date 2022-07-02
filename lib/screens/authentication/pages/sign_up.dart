@@ -37,7 +37,7 @@ class SignUpView extends StatelessWidget {
                   Icons.facebook,
                   color: AppTheme.white,
                 ),
-                onTap: () {},
+                onTap: state.googleSingin,
               ),
             ),
             const SizedBox(height: AppTheme.cardPadding),

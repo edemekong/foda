@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:foda/components/foda_button.dart';
 import 'package:foda/screens/onboard/onboard_view.dart';
 import 'package:foda/themes/app_theme.dart';
+import 'package:provider/provider.dart';
 
 import '../../../components/textfield.dart';
+import '../authentication_state.dart';
 
 class SignInView extends StatelessWidget {
   const SignInView({
@@ -12,6 +14,8 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final state = context.watch<AuthenticationState>();
+
     return Padding(
       padding: const EdgeInsets.all(AppTheme.cardPadding),
       child: Center(
@@ -25,6 +29,7 @@ class SignInView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: AppTheme.cardPadding * 2),
               child: FodaButton(
                 title: "Sign In With Google",
+                state: state.isLoading ? ButtonState.loading : ButtonState.idle,
                 gradiant: const [
                   AppTheme.orange,
                   AppTheme.red,
@@ -33,7 +38,7 @@ class SignInView extends StatelessWidget {
                   Icons.facebook,
                   color: AppTheme.white,
                 ),
-                onTap: () {},
+                onTap: state.googleSingin,
               ),
             ),
             const SizedBox(height: AppTheme.cardPadding),
@@ -42,17 +47,20 @@ class SignInView extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyText2?.copyWith(color: AppTheme.grey),
             ),
             const SizedBox(height: AppTheme.cardPadding),
-            const FodaTextfield(
+            FodaTextfield(
               title: "Your Email",
+              controller: state.emailController,
             ),
             const SizedBox(height: AppTheme.elementSpacing),
-            const FodaTextfield(
+            FodaTextfield(
               title: "Password",
+              controller: state.passwordController,
             ),
             const SizedBox(height: AppTheme.cardPadding),
             FodaButton(
               title: "Sign In",
-              onTap: () {},
+              state: state.isLoading ? ButtonState.loading : ButtonState.idle,
+              onTap: state.loginUser,
             ),
             const SizedBox(height: AppTheme.cardPadding * 4),
           ],

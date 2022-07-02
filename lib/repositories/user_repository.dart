@@ -115,4 +115,38 @@ class UserRepository {
 
     yield currentUserNotifier.value;
   }
+
+  Future<Either<ErrorHandler, User>> googleSignIn() async {
+    try {
+      final firebaseUser = await _authService.googleSignIn();
+      if (firebaseUser == null) return const Left(ErrorHandler(message: "Could not signin"));
+      final snapshot = await usersCollection.doc(firebaseUser.uid).get();
+      if (!snapshot.exists) {
+        final newUser = User(
+          uid: firebaseUser.uid,
+          email: firebaseUser.email ?? "",
+          phone: firebaseUser.phoneNumber ?? "",
+          profileImageUrl: firebaseUser.photoURL ?? "",
+          createdAt: timeNow(),
+          updatedAt: timeNow(),
+          isActive: true,
+          dob: 0,
+        );
+
+        await usersCollection.doc(firebaseUser.uid).set(newUser.toMap());
+        final getUser = await getCurrentUser(firebaseUser.uid);
+        if (getUser.isRight) {
+          return Right(getUser.right);
+        } else {
+          return const Left(ErrorHandler(message: "Could not signin"));
+        }
+      } else {
+        final user = User.fromMap(snapshot.data() as Map<String, dynamic>);
+        listenToCurrentUser(user.uid);
+        return Right(user);
+      }
+    } catch (e) {
+      return Left(ErrorHandler(message: e.toString()));
+    }
+  }
 }
