@@ -15,6 +15,7 @@ class Overview extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView(
       controller: context.read<OverviewState>().pageController,
+      physics: const NeverScrollableScrollPhysics(),
       children: const [
         HomePage(),
         FavoritePage(),

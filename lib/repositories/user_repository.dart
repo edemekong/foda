@@ -10,6 +10,8 @@ import 'package:foda/models/user.dart';
 import 'package:foda/services/authentication_service.dart';
 import 'package:foda/utils/common.dart';
 
+import '../models/food.dart';
+
 class UserRepository {
   final _authService = AuthenicationService.instance;
   final usersCollection = FirebaseFirestore.instance.collection("users");
@@ -147,6 +149,17 @@ class UserRepository {
         listenToCurrentUser(user.uid);
         return Right(user);
       }
+    } catch (e) {
+      return Left(ErrorHandler(message: e.toString()));
+    }
+  }
+
+  Future<Either<ErrorHandler, bool>> addFoodToFavorite(String uid, Food food, {bool isAdding = true}) async {
+    try {
+      await usersCollection.doc(uid).update({
+        "favorites": isAdding ? FieldValue.arrayUnion([food.id]) : FieldValue.arrayRemove([food.id]),
+      });
+      return Right(isAdding);
     } catch (e) {
       return Left(ErrorHandler(message: e.toString()));
     }
