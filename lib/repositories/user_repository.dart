@@ -135,6 +135,8 @@ class UserRepository {
           updatedAt: timeNow(),
           isActive: true,
           dob: 0,
+          favorites: const [],
+          name: firebaseUser.displayName ?? "",
         );
 
         await usersCollection.doc(firebaseUser.uid).set(newUser.toMap());
