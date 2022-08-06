@@ -52,6 +52,14 @@ class AuthenicationService {
     }
   }
 
+  Future<void> logout() async {
+    try {
+      await auth.signOut();
+    } catch (e) {
+      print(e);
+    }
+  }
+
   Future<User?> signUp(String email, String password) async {
     try {
       final UserCredential authResult = await auth.createUserWithEmailAndPassword(email: email, password: password);
@@ -90,7 +98,7 @@ class AuthenicationService {
       if (userCredential?.user != null) {
         return userCredential?.user;
       }
-    } catch (e) {
+    } on FirebaseException catch (e) {
       print(e);
     }
     return null;
