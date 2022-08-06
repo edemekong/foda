@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foda/components/foda_button.dart';
 import 'package:foda/constant/icon_path.dart';
-import 'package:foda/constant/image_path.dart';
 import 'package:foda/states/overview_state.dart';
 import 'package:foda/themes/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -77,6 +76,7 @@ class FoodCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final state = context.read<OverviewState>();
     return Column(
       children: [
         Stack(
@@ -107,7 +107,9 @@ class FoodCard extends StatelessWidget {
                   color: AppTheme.white,
                   size: 30,
                 ),
-                onTap: () {},
+                onTap: () {
+                  state.addToCart(food);
+                },
               ),
             ),
             Positioned(
@@ -120,7 +122,9 @@ class FoodCard extends StatelessWidget {
                   AppTheme.darkBlue,
                 ],
                 icon: Image.asset(IconPath.favourite),
-                onTap: () {},
+                onTap: () {
+                  state.addToFavorite(food);
+                },
               ),
             ),
             Positioned(

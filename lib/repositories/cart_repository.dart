@@ -107,7 +107,6 @@ class CartRepository {
         deleteCartItemBatch.delete(_firestoreUser.doc(uid).collection('cart').doc(cartItem.foodId));
       }
       await deleteCartItemBatch.commit();
-      cartNotifier.notifyListeners();
 
       return const Right(true);
     } on FirebaseException catch (e) {
@@ -147,6 +146,7 @@ class CartRepository {
 
   void _removeCartListener() {
     _cartSnapShotSubscription?.cancel();
+    _cartSnapShotSubscription = null;
   }
 
   void _clearCart() {

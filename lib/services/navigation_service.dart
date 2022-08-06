@@ -63,13 +63,15 @@ class NavigationService {
     return null;
   }
 
-  MaterialPageRoute navigateToMaterialPageRoute(RouteSettings settings, Widget page,
-      {bool maintainState = true, bool fullscreen = false}) {
-    return MaterialPageRoute(
+  PageRoute navigateToMaterialPageRoute(RouteSettings settings, Widget page,
+      {bool maintainState = true, bool fullscreenDialog = false}) {
+    return PageRouteBuilder(
+      pageBuilder: (c, a1, a2) => page,
       maintainState: maintainState,
-      fullscreenDialog: fullscreen,
+      fullscreenDialog: fullscreenDialog,
       settings: settings,
-      builder: (_) => page,
+      transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+      transitionDuration: const Duration(milliseconds: 300),
     );
   }
 }
