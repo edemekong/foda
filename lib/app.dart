@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foda/screens/authentication/authentication_state.dart';
+import 'package:foda/screens/cart/cart_state.dart';
+import 'package:foda/services/get_it.dart';
 import 'package:foda/services/navigation_service.dart';
 import 'package:foda/states/overview_state.dart';
 import 'package:foda/themes/app_theme.dart';
@@ -16,7 +18,11 @@ class FodaApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthenticationState()),
-        ChangeNotifierProvider(create: (_) => OverviewState())
+        ChangeNotifierProvider(create: (_) => OverviewState()),
+        ChangeNotifierProvider(
+          create: (_) => CartState(),
+          lazy: true,
+        )
       ],
       child: MaterialApp(
         theme: AppTheme.theme,
@@ -33,21 +39,23 @@ class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navigationService = locate<NavigationService>();
     return Scaffold(
       bottomNavigationBar: ValueListenableBuilder<bool>(
-          valueListenable: NavigationService.intance.showNavigationBar,
+          valueListenable: navigationService.showNavigationBar,
           builder: (context, show, _) {
+            fodaPrint("navigation bar show $show");
             if (!show) return const SizedBox.shrink();
             return Container(
               padding: const EdgeInsets.only(top: AppTheme.elementSpacing),
               color: AppTheme.darkBlue,
               child: ValueListenableBuilder<int>(
-                  valueListenable: NavigationService.intance.currentIndexNotifier,
+                  valueListenable: navigationService.currentIndexNotifier,
                   builder: (context, index, _) {
                     return BottomNavigationBar(
                       currentIndex: index,
                       onTap: (index) {
-                        NavigationService.intance.updateIndex(index);
+                        navigationService.updateIndex(index);
                       },
                       items: [
                         BottomNavigationBarItem(
@@ -85,10 +93,10 @@ class Wrapper extends StatelessWidget {
             );
           }),
       body: Navigator(
-        key: NavigationService.intance.navigatorKey,
-        onGenerateRoute: NavigationService.intance.onGeneratedRoute,
+        key: navigationService.navigatorKey,
+        onGenerateRoute: navigationService.onGeneratedRoute,
         observers: [TabNavigationObservers()],
-        initialRoute: NavigationService.intance.determineHomePath(),
+        initialRoute: navigationService.determineHomePath(),
       ),
     );
   }
@@ -97,7 +105,7 @@ class Wrapper extends StatelessWidget {
 class TabNavigationObservers extends RouteObserver<PageRoute<dynamic>> {
   TabNavigationObservers();
 
-  final navigationService = NavigationService.intance;
+  final navigationService = locate<NavigationService>();
 
   @override
   void didPop(Route<dynamic>? route, Route<dynamic>? previousRoute) {

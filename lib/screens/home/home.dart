@@ -29,7 +29,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             leading: Image.asset(IconPath.menu),
             backgroundColor: Colors.transparent,
             elevation: 0,
-            actions: [Image.asset(IconPath.bag)],
+            actions: [
+              InkWell(
+                onTap: () {
+                  state.openCartView(context);
+                },
+                child: Image.asset(IconPath.bag),
+              ),
+            ],
           ),
           Expanded(
             child: ValueListenableBuilder<List<Food>>(

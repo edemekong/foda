@@ -4,20 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:foda/constant/route_name.dart';
 import 'package:foda/repositories/user_repository.dart';
 import 'package:foda/screens/authentication/authentication_view.dart';
+import 'package:foda/screens/cart/cart_view.dart';
 import 'package:foda/screens/onboard/onboard_view.dart';
 import 'package:foda/screens/overview/overview.dart';
 import 'package:foda/services/get_it.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class NavigationService {
-  NavigationService._();
-
-  static NavigationService? _instance;
-
-  static NavigationService get intance {
-    _instance ??= NavigationService._();
-    return _instance!;
-  }
-
   GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   UserRepository userRepo = locate<UserRepository>();
 
@@ -27,6 +20,7 @@ class NavigationService {
   List<String> pathToCloseNavigationBar = [
     authPath,
     welcomePath,
+    cartPath,
   ];
 
   set setNavigationBar(bool value) {
@@ -52,12 +46,15 @@ class NavigationService {
     switch (routeName) {
       case authPath:
         final state = settings.arguments as AuthenticationViewState;
-        return navigateToMaterialPageRoute(settings, AuthenticationView(viewState: state));
+        return _navigateToModelPageRoute(settings, AuthenticationView(viewState: state));
       case welcomePath:
-        return navigateToMaterialPageRoute(settings, const OnboardView());
+        return _navigateToModelPageRoute(settings, const OnboardView());
 
       case overviewPath:
-        return navigateToMaterialPageRoute(settings, const Overview());
+        return _navigateToModelPageRoute(settings, const Overview());
+
+      case cartPath:
+        return _navigateToModelPageRoute(settings, const CartView());
     }
 
     return null;
@@ -72,6 +69,16 @@ class NavigationService {
       settings: settings,
       transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
       transitionDuration: const Duration(milliseconds: 300),
+    );
+  }
+
+  MaterialPageRoute _navigateToModelPageRoute(RouteSettings settings, Widget child,
+      {bool maintainState = true, bool fullscreenDialog = false}) {
+    return MaterialWithModalsPageRoute(
+      settings: settings,
+      maintainState: maintainState,
+      fullscreenDialog: fullscreenDialog,
+      builder: (_) => child,
     );
   }
 }

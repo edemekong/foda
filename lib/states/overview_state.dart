@@ -3,13 +3,15 @@ import 'package:foda/components/base_state.dart';
 import 'package:foda/repositories/cart_repository.dart';
 import 'package:foda/repositories/food_repository.dart';
 import 'package:foda/repositories/user_repository.dart';
+import 'package:foda/screens/cart/cart_view.dart';
 import 'package:foda/services/get_it.dart';
 import 'package:foda/services/navigation_service.dart';
 
+import '../components/cupertino_model_route.dart';
 import '../models/food.dart';
 
 class OverviewState extends BaseState {
-  final navigationService = NavigationService.intance;
+  final navigationService = locate<NavigationService>();
   final userRepo = locate<UserRepository>();
 
   final foodRepository = locate<FoodRepository>();
@@ -37,5 +39,16 @@ class OverviewState extends BaseState {
 
   void addToFavorite(Food food) {
     userRepo.addFoodToFavorite(userRepo.currentUserUID!, food);
+  }
+
+  void openCartView(BuildContext context) {
+    navigationService.setNavigationBar = false;
+    showSnapModelBottomSheet(
+      context: context,
+      enableDrag: true,
+      builder: (_) => const CartView(),
+    ).then((value) {
+      navigationService.setNavigationBar = true;
+    });
   }
 }

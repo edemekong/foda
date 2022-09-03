@@ -28,6 +28,29 @@ class FoodRepository {
     }
   }
 
+  Future<Either<ErrorHandler, Food>> getFood(String foodId) async {
+    try {
+      final food = foodsNotifier.value.firstWhere((food) => food.id == foodId);
+      return Right(food);
+    } catch (e) {
+      try {
+        if (foodId.isEmpty) {
+          return const Left(ErrorHandler(message: 'No food Id found...'));
+        }
+        final _productSnapshot = await _firestore.doc(foodId).get();
+        if (_productSnapshot.exists) {
+          final food = Food.fromMap(_productSnapshot.data() as Map<String, dynamic>);
+          foodsNotifier.value.add(food);
+          foodsNotifier.notifyListeners();
+          return Right(food);
+        }
+        return const Left(ErrorHandler(message: "Error"));
+      } on FirebaseException catch (e) {
+        return Left(ErrorHandler(message: e.message ?? ''));
+      }
+    }
+  }
+
   void _listenToFoods(QuerySnapshot<Map<String, dynamic>> snapshot) {
     for (final document in snapshot.docs) {
       final food = Food.fromMap(document.data());

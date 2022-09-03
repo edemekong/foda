@@ -11,7 +11,7 @@ import '../../components/base_state.dart';
 class AuthenticationState extends BaseState {
   final userRepo = locate<UserRepository>();
   final formKey = GlobalKey<FormState>();
-  final navigationService = NavigationService.intance;
+  final navigationService = locate<NavigationService>();
 
   BuildContext get context => navigationService.navigatorKey.currentContext!;
   User? currentUser;
