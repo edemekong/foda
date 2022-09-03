@@ -2,12 +2,16 @@ import 'package:foda/components/base_state.dart';
 import 'package:foda/models/food.dart';
 import 'package:foda/repositories/cart_repository.dart';
 import 'package:foda/repositories/food_repository.dart';
+import 'package:foda/repositories/user_repository.dart';
+import 'package:foda/utils/common.dart';
 
 import '../../models/cart_item.dart';
 import '../../services/get_it.dart';
 
 class CartState extends BaseState {
   final foodRepo = locate<FoodRepository>();
+  final userRepo = locate<UserRepository>();
+
   final _cartRepo = locate<CartRepository>();
 
   Map<String, Food> cartItems = {};
@@ -29,8 +33,8 @@ class CartState extends BaseState {
     cartItems.forEach((key, value) {
       try {
         final cartItem = cart.firstWhere((item) => item.foodId == key);
-        final newProduct = value.copyWith(category: cartItem.category);
-        total += cartItem.quantity * newProduct.price;
+        final newFood = value.copyWith(category: cartItem.category);
+        total += cartItem.quantity * newFood.price;
       } catch (_) {}
     });
     return total;
@@ -38,6 +42,7 @@ class CartState extends BaseState {
 
   void _cartListener() async {
     cart = _cartRepo.cartNotifier.value;
+    fodaPrint(cart);
     notifyListeners();
 
     _cartRepo.cartNotifier.value.forEach(
@@ -50,5 +55,9 @@ class CartState extends BaseState {
         }
       }),
     );
+  }
+
+  void removCartItem(Food food) {
+    _cartRepo.removeFoodFromCart(userRepo.currentUserUID!, food);
   }
 }
