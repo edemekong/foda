@@ -33,22 +33,21 @@ class OverviewState extends BaseState {
     animateToPage(navigationService.currentIndexNotifier.value);
   }
 
-  void addToCart(Food food) {
-    cartRepo.addOrRemoveFoodFromCart(userRepo.currentUserUID!, food);
+  void addToCart(Food food, [bool isAdding = true]) {
+    cartRepo.addOrRemoveFoodFromCart(userRepo.currentUserUID!, food, isAdding: isAdding);
   }
 
   void addToFavorite(Food food) {
     userRepo.addFoodToFavorite(userRepo.currentUserUID!, food);
   }
 
-  void openCartView(BuildContext context) {
-    navigationService.setNavigationBar = false;
-    showSnapModelBottomSheet(
+  Future<void> openCartView(BuildContext context) async {
+    await showSnapModelBottomSheet(
       context: context,
       enableDrag: true,
+      useRootNavigator: true,
+      topRadius: const Radius.circular(40),
       builder: (_) => const CartView(),
-    ).then((value) {
-      navigationService.setNavigationBar = true;
-    });
+    );
   }
 }

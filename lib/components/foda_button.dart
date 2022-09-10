@@ -10,6 +10,7 @@ class FodaButton extends StatefulWidget {
   final Widget? leadingIcon;
   final List<Color>? gradiant;
   final Function()? onTap;
+  final bool outline;
 
   const FodaButton({
     Key? key,
@@ -19,6 +20,7 @@ class FodaButton extends StatefulWidget {
     this.leadingIcon,
     this.gradiant,
     required this.onTap,
+    this.outline = false,
   }) : super(key: key);
 
   @override
@@ -32,10 +34,16 @@ class _FodaButtonState extends State<FodaButton> {
     return InkWell(
       onTap: widget.onTap,
       child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: AppTheme.cardPadding * 1.5, vertical: AppTheme.elementSpacing),
         height: AppTheme.buttonHeight,
         decoration: BoxDecoration(
             color: defaultColor.length < 2 ? defaultColor.first : null,
             borderRadius: BorderRadius.circular(99),
+            border: widget.outline
+                ? Border.all(
+                    color: AppTheme.grey,
+                  )
+                : null,
             gradient: defaultColor.length > 1
                 ? LinearGradient(
                     colors: defaultColor,
@@ -72,6 +80,7 @@ class FodaCircleButton extends StatefulWidget {
   final TextStyle? titleStyle;
   final ButtonState state;
   final Widget? icon;
+  final EdgeInsets? padding;
   final List<Color>? gradiant;
   final Function()? onTap;
 
@@ -82,6 +91,7 @@ class FodaCircleButton extends StatefulWidget {
     this.state = ButtonState.idle,
     this.icon,
     this.gradiant,
+    this.padding,
     required this.onTap,
   }) : super(key: key);
 
@@ -96,7 +106,7 @@ class _FodaCircleButtonState extends State<FodaCircleButton> {
     return InkWell(
       onTap: widget.onTap,
       child: Container(
-        padding: const EdgeInsets.all(12),
+        padding: widget.padding ?? const EdgeInsets.all(12),
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: defaultColor.length < 2 ? defaultColor.first : null,

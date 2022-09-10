@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   //spaces
-  static const double cardPadding = 24;
+  static const double cardPadding = 20;
   static const double elementSpacing = cardPadding * 0.5;
   static const double bottomNavBarHeight = 64;
   static const Duration animationDuration = Duration(milliseconds: 300);
@@ -31,28 +31,28 @@ class AppTheme {
   //text theme
   static TextTheme textTheme = const TextTheme(
     headline1: TextStyle(
-      fontFamily: 'ArimaMadurai',
+      fontFamily: 'OpenSans',
       fontSize: 38.4,
       letterSpacing: -1.0,
       color: orange,
       fontWeight: FontWeight.w400,
     ),
     headline2: TextStyle(
-      fontFamily: 'ArimaMadurai',
+      fontFamily: 'OpenSans',
       fontSize: 27.2,
       letterSpacing: -0.25,
       color: white,
       fontWeight: FontWeight.w400,
     ),
     headline3: TextStyle(
-      fontFamily: 'ArimaMadurai',
+      fontFamily: 'OpenSans',
       fontSize: 21.2,
       letterSpacing: 0,
       color: white,
       fontWeight: FontWeight.w600,
     ),
     headline4: TextStyle(
-      fontFamily: 'ArimaMadurai',
+      fontFamily: 'OpenSans',
       fontSize: 20.4,
       letterSpacing: 0,
       color: white,
