@@ -9,7 +9,10 @@ class NotchBar extends StatelessWidget {
     return Container(
       height: 4,
       width: 50,
-      color: AppTheme.darkBlue,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(40),
+        color: AppTheme.darkBlue,
+      ),
     );
   }
 }

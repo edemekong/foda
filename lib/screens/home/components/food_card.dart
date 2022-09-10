@@ -23,25 +23,22 @@ class FoodCard extends StatelessWidget {
           Stack(
             clipBehavior: Clip.none,
             children: [
-              Hero(
-                tag: food.id,
-                child: Container(
-                  height: 300,
-                  width: 300,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppTheme.black.withOpacity(.6),
-                        spreadRadius: 20,
-                        blurRadius: 20,
-                        offset: const Offset(15, 5),
-                      ),
-                    ],
-                    image: DecorationImage(
-                      image: NetworkImage(food.imageUrl),
-                      fit: BoxFit.cover,
+              Container(
+                height: 300,
+                width: 300,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppTheme.black.withOpacity(.6),
+                      spreadRadius: 20,
+                      blurRadius: 20,
+                      offset: const Offset(15, 5),
                     ),
+                  ],
+                  image: DecorationImage(
+                    image: NetworkImage(food.imageUrl),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

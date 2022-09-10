@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foda/screens/authentication/authentication_state.dart';
-import 'package:foda/screens/cart/cart_state.dart';
+import 'package:foda/screens/checkout/checkout_state.dart';
 import 'package:foda/states/overview_state.dart';
 import 'package:foda/themes/app_theme.dart';
 import 'package:foda/wrapper.dart';
@@ -16,7 +16,7 @@ class FodaApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthenticationState()),
         ChangeNotifierProvider(create: (_) => OverviewState()),
         ChangeNotifierProvider(
-          create: (_) => CartState(),
+          create: (_) => CheckoutState(),
           lazy: true,
         )
       ],

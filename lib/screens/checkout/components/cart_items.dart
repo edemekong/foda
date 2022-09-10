@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foda/screens/cart/cart_state.dart';
-import 'package:foda/screens/cart/components/cart_item_card.dart';
+import 'package:foda/screens/checkout/checkout_state.dart';
+import 'package:foda/screens/checkout/components/cart_item_card.dart';
 import 'package:foda/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +9,7 @@ class CartItemList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<CartState>();
+    final state = context.watch<CheckoutState>();
 
     return Expanded(
       child: ListView.builder(

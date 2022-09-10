@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foda/constant/icon_path.dart';
-import 'package:foda/screens/cart/cart_state.dart';
+import 'package:foda/models/cart_item.dart';
+import 'package:foda/screens/checkout/checkout_state.dart';
 import 'package:foda/states/overview_state.dart';
 import 'package:foda/themes/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,7 @@ class HomeAppBar extends StatelessWidget {
         InkWell(
           onTap: () => state.openCartView(context),
           child: Builder(builder: (context) {
-            final cartState = context.watch<CartState>();
+            final cartItems = context.select<CheckoutState, List<CartItem>>((v) => v.cart);
 
             return Stack(
               clipBehavior: Clip.none,
@@ -33,11 +34,11 @@ class HomeAppBar extends StatelessWidget {
                   ),
                   child: Image.asset(IconPath.bag),
                 ),
-                if (cartState.cart.isNotEmpty) ...[
+                if (cartItems.isNotEmpty) ...[
                   Positioned(
                     right: -2,
                     child: Text(
-                      cartState.cart.length.toString(),
+                      cartItems.length.toString(),
                       style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             color: AppTheme.red,
                             fontWeight: FontWeight.w500,

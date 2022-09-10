@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:foda/components/foda_button.dart';
 import 'package:foda/models/cart_item.dart';
 import 'package:foda/models/food.dart';
-import 'package:foda/screens/cart/cart_state.dart';
+import 'package:foda/screens/checkout/checkout_state.dart';
+import 'package:foda/states/overview_state.dart';
 import 'package:foda/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +20,7 @@ class CartItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = context.read<CartState>();
+    final state = context.read<OverviewState>();
 
     return Stack(
       clipBehavior: Clip.none,

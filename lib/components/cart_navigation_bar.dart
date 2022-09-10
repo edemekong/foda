@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:foda/components/foda_button.dart';
-import 'package:foda/screens/cart/cart_state.dart';
-import 'package:foda/screens/cart/components/cart_item_card.dart';
+import 'package:foda/models/cart_item.dart';
+import 'package:foda/models/food.dart';
+import 'package:foda/screens/checkout/checkout_state.dart';
+import 'package:foda/screens/checkout/components/cart_item_card.dart';
 import 'package:foda/states/overview_state.dart';
 import 'package:foda/themes/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -13,8 +15,9 @@ class CartBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cartState = context.watch<CartState>();
     final overviewState = context.read<OverviewState>();
+    final cart = context.select<CheckoutState, List<CartItem>>((v) => v.cart);
+    final cartItems = context.select<CheckoutState, Map<String, Food>>((v) => v.cartItems);
 
     return Container(
       padding: const EdgeInsets.only(
@@ -27,7 +30,7 @@ class CartBottomNavigationBar extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: cartState.cart.length,
+              itemCount: cart.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.only(
@@ -40,8 +43,8 @@ class CartBottomNavigationBar extends StatelessWidget {
                     clipBehavior: Clip.none,
                     children: [
                       CartItemCard(
-                        cartItem: cartState.cart[index],
-                        food: cartState.cartItems[cartState.cart[index].foodId],
+                        cartItem: cart[index],
+                        food: cartItems[cart[index].foodId],
                         showDetail: false,
                       ),
                       Positioned(
@@ -54,7 +57,7 @@ class CartBottomNavigationBar extends StatelessWidget {
                             shape: BoxShape.circle,
                           ),
                           child: Text(
-                            "${cartState.cart[index].quantity}",
+                            "${cart[index].quantity}",
                             style: Theme.of(context).textTheme.headline4?.copyWith(
                                   color: AppTheme.white,
                                   fontWeight: FontWeight.bold,

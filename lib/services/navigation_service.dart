@@ -5,7 +5,8 @@ import 'package:foda/constant/route_name.dart';
 import 'package:foda/models/food.dart';
 import 'package:foda/repositories/user_repository.dart';
 import 'package:foda/screens/authentication/authentication_view.dart';
-import 'package:foda/screens/cart/cart_view.dart';
+import 'package:foda/screens/checkout/checkout_view.dart';
+import 'package:foda/screens/checkout/pages/cart.dart';
 import 'package:foda/screens/food_detail/food_detail.dart';
 import 'package:foda/screens/onboard/onboard_view.dart';
 import 'package:foda/screens/overview/overview.dart';
@@ -63,7 +64,7 @@ class NavigationService {
         return _navigateToModelPageRoute(settings, const Overview());
 
       case cartPath:
-        return _navigateToModelPageRoute(settings, const CartView());
+        return _navigateToModelPageRoute(settings, const CheckoutView());
 
       case foodDetailPath:
         final food = settings.arguments as Food?;

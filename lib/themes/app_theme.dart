@@ -15,7 +15,7 @@ class AppTheme {
   static Size size(BuildContext context) => MediaQuery.of(context).size;
 
   //colors
-  static const Color black = Color(0xFF121016);
+  static const Color black = Color(0xFF141416);
   static const Color orange = Color(0xFFFFBD69);
   static const Color orangeDark = Color(0xFFFF7565);
 
@@ -130,7 +130,7 @@ class AppTheme {
     hintColor: white,
     indicatorColor: red,
     radioTheme: RadioThemeData(
-      fillColor: MaterialStateProperty.all(red),
+      fillColor: MaterialStateProperty.all(purple),
       splashRadius: 24,
     ),
     iconTheme: const IconThemeData(color: grey),

@@ -18,24 +18,21 @@ class DisplayFoodImage extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        Hero(
-          tag: state.food.id,
-          child: Container(
-            height: 260,
-            width: 260,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: AppTheme.black.withOpacity(.6),
-                  spreadRadius: 20,
-                  blurRadius: 20,
-                ),
-              ],
-              image: DecorationImage(
-                image: NetworkImage(state.food.imageUrl),
-                fit: BoxFit.cover,
+        Container(
+          height: 260,
+          width: 260,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: AppTheme.black.withOpacity(.6),
+                spreadRadius: 20,
+                blurRadius: 20,
               ),
+            ],
+            image: DecorationImage(
+              image: NetworkImage(state.food.imageUrl),
+              fit: BoxFit.cover,
             ),
           ),
         ),
