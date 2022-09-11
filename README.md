@@ -1,6 +1,6 @@
 # FODA
 
-This is a on-demend food delivery app specifically for learning and exploring flutter amazing framework. This Project is developed to help beginners, intermediates and sometime advance to know better about using Firebase services and tools, different flutter state management solutions, complex navigations, realtime control over maps, understanding payments etc. This will help you build a strong portfolio for your journey as becoming a valuable FLUTTER DEVELOPER.
+This is a on- demend food delivery app specifically for learning and exploring flutter amazing framework. This Project is developed to help beginners, intermediates and sometime advance to know better about using Firebase services and tools, different flutter state management solutions, complex navigations, realtime control over maps, understanding payments etc. This will help you build a strong portfolio for your journey as becoming a valuable FLUTTER DEVELOPER.
 
 ### FEATURES
 
@@ -18,7 +18,7 @@ This is a on-demend food delivery app specifically for learning and exploring fl
 - Realtime Order Tracking
 - Push Notifications
 
-<img width="861" alt="Screenshot 2022-04-07 at 6 00 25 AM" src="https://user-images.githubusercontent.com/68385854/162123485-c3182e5f-1f52-4a14-a555-d7ee3498ab5e.png">
+<img width="861" alt="Screenshot 2022- 04- 07 at 6 00 25 AM" src="https://user- images.githubusercontent.com/68385854/162123485- c3182e5f- 1f52- 4a14- a555- d7ee3498ab5e.png">
 
 ### We'll be focusing on:
 
@@ -30,79 +30,79 @@ This is a on-demend food delivery app specifically for learning and exploring fl
 
 ## Episodes
 
--11:25
-NOW PLAYING
-Build A Flutter On-demand Food Delivery App - Overview
+- 11:25
+  NOW PLAYING
+  Build A Flutter On- demand Food Delivery App - Overview
 
--10:31
-NOW PLAYING
-Folder Structure For Our Food Delivery App; Flutter
+- 10:31
+  NOW PLAYING
+  Folder Structure For Our Food Delivery App; Flutter
 
--9:44
-NOW PLAYING
-Using GIT & GITHUB for our Food Delivery App; Flutter
+- 9:44
+  NOW PLAYING
+  Using GIT & GITHUB for our Food Delivery App; Flutter
 
--15:08
-NOW PLAYING
-Theme Your Flutter Project: Food Delivery App
+- 15:08
+  NOW PLAYING
+  Theme Your Flutter Project: Food Delivery App
 
--8:26
-NOW PLAYING
-Build Custom Scaffold & Shapes; Food Delivery App Ep5
+- 8:26
+  NOW PLAYING
+  Build Custom Scaffold & Shapes; Food Delivery App Ep5
 
--19:42
-NOW PLAYING
-Custom Reusable Button; Food Delivery App - Flutter
+- 19:42
+  NOW PLAYING
+  Custom Reusable Button; Food Delivery App - Flutter
 
--13:17
-NOW PLAYING
-Welcome Screen - Food Delivery App; Flutter
+- 13:17
+  NOW PLAYING
+  Welcome Screen - Food Delivery App; Flutter
 
--49:19
-NOW PLAYING
-Building Food Delivery App Authentication UI; From XD to Flutter UI
+- 49:19
+  NOW PLAYING
+  Building Food Delivery App Authentication UI; From XD to Flutter UI
 
--15:56
-NOW PLAYING
-Scalable Flutter Navigation; Food Delivery App
+- 15:56
+  NOW PLAYING
+  Scalable Flutter Navigation; Food Delivery App
 
--17:11
-NOW PLAYING
-State Control || BuildContext || State Management Intro
+- 17:11
+  NOW PLAYING
+  State Control || BuildContext || State Management Intro
 
--43:42
-NOW PLAYING
-Foda Firebase Authentication; Flutter
+- 43:42
+  NOW PLAYING
+  Foda Firebase Authentication; Flutter
 
--1:02:33
-NOW PLAYING
-Authentication, User model and User Repository Tied to UI; Flutter
+- 1:02:33
+  NOW PLAYING
+  Authentication, User model and User Repository Tied to UI; Flutter
 
--19:31
-NOW PLAYING
-FODA APP Authentication Completion; Flutter
+- 19:31
+  NOW PLAYING
+  FODA APP Authentication Completion; Flutter
 
--19:18
-NOW PLAYING
-Foda Overview Screen || Bottom Navigation Bar; Flutter
+- 19:18
+  NOW PLAYING
+  Foda Overview Screen || Bottom Navigation Bar; Flutter
 
--29:46
-NOW PLAYING
-Fetch foods, Add food to Cart and Favorite List; Food Delivery App
+- 29:46
+  NOW PLAYING
+  Fetch foods, Add food to Cart and Favorite List; Food Delivery App
 
--54:23
-NOW PLAYING
-Flutter Web Admin Panel; A Food Delivery App Use-case
+- 54:23
+  NOW PLAYING
+  Flutter Web Admin Panel; A Food Delivery App Use- case
 
--55:31
-NOW PLAYING
-Add To Cart; Flutter Food Delivery App
+- 55:31
+  NOW PLAYING
+  Add To Cart; Flutter Food Delivery App
 
 #### All Published episodes will be seen below as a thumbnail
 
 ## VIDEO TUTORIALS BELOW
 
-### Build A Flutter On-demand Food Delivery App - Overview || Episode 1
+### Build A Flutter On- demand Food Delivery App - Overview || Episode 1
 
 - Welcome everyone!!!❤️💙
 - This is an intro/overview of the project enjoy! if you have any questions leave it on the comment section am always checking them out.
@@ -200,7 +200,7 @@ If you ever get stuck here. Ping me privately on this to help you❤️!!!
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/0FyfVneIZ3s/0.jpg)](https://www.youtube.com/watch?v=0FyfVneIZ3s)
 
-### Flutter Web Admin Panel; A Food Delivery App Use-case || Episode 15
+### Flutter Web Admin Panel; A Food Delivery App Use- case || Episode 15
 
 - Here in this tutorial, we going to build real world use case of a food delivery using Flutter & Baas from Firebase.
 
